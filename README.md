@@ -1,5 +1,15 @@
 # okd-3-11-example
 
+## Prepare
+
+```bash
+mkdir -p inventories
+touch inventories/hosts.yaml
+
+mkdir -p inventories/group_vars
+touch inventories/group_vars/all.yaml
+```
+
 ## Ansible
 
 ### Inventory
