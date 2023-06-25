@@ -52,3 +52,24 @@ console.okd3-prod         IN    A      10.100.100.15
 17                       IN    PTR    okd3-node0.seems.local.
 18                       IN    PTR    okd3-node1.seems.local.
 ```
+
+## Authentication
+
+### HTpasswd Manually add User
+
+```bash
+# Get Hash
+htpasswd -n okdadmin
+
+# Verify Hash with Password
+htpasswd -vb /etc/origin/master/htpasswd okdadmin dmlAjICyfrYXCsEH3NOoeeZMBkbo9G0JJy70z4etiO1dlCoo
+
+# Save File to `/etc/origin/master/htpasswd`
+cat > /etc/origin/master/htpasswd << "EndOfMessage"
+okdadmin:$apr1$gt/uN/qF$jqqiPEDS3auIXcC0bAyME1
+EndOfMessage
+
+# Manuall Re
+master-restart api
+master-restart controllers
+```
