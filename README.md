@@ -113,3 +113,8 @@ console.okd3-prod         IN    A      10.100.100.15
 17                       IN    PTR    okd3-node0.seems.local.
 18                       IN    PTR    okd3-node1.seems.local.
 ```
+
+## Docs
+
+### Default variables for node
+`./openshift-ansible/roles/openshift_node/defaults/main.yml`
