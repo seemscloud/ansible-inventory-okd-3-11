@@ -9,17 +9,22 @@ all:
   children:
     OSEv3:
       vars:
+        # Debug Ansible Run
+        debug_level: 2
+        # Amnsible Connection
         ansible_ssh_user: root
         ansible_user: root
-        debug_level: 2
-        internal_console_port: 8443
+        # Installation Type
         openshift_deployment_type: origin
         openshift_disable_check: docker_storage,memory_availability,disk_availability
+        # UI Access
+        internal_console_port: 8443
         openshift_master_api_port: 8443
+        openshift_master_console_port: 8443
         openshift_master_cluster_hostname: console.okd3-prod.seems.local
         openshift_master_cluster_public_hostname: console.okd3-prod.seems.local
-        openshift_master_console_port: 8443
         openshift_master_default_subdomain: apps.okd3-prod.seems.local
+        # Authentication
         openshift_master_htpasswd_file: /etc/origin/master/htpasswd
         openshift_master_htpasswd_users:
           okdadmin: $apr1$XbI1zlV3$FuiA0g8tUfbYmZDeZpyRs/
