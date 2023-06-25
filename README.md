@@ -6,15 +6,15 @@
 
 ```bash
 # Prepare
-ansible-playbook -i hosts.yaml \
+ansible-playbook -i inventories/hosts.yaml \
   openshift-ansible/playbooks/prerequisites.yml
 
 # Deploy
-ansible-playbook -i hosts.yaml \
+ansible-playbook -i inventories/hosts.yaml \
   openshift-ansible/playbooks/deploy_cluster.yml
 
 # Uninstall
-ansible-playbook -i hosts.yaml \
+ansible-playbook -i inventories/hosts.yaml \
   openshift-ansible/playbooks/adhoc/uninstall.yml
 ```
 
