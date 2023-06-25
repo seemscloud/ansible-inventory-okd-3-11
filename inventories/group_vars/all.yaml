@@ -1,6 +1,6 @@
-# Override journald variables
+# Override journald Configuration
 # ./openshift-ansible/roles/openshift_node/defaults/main.yml
-# This role is used by in many playbooks, its safe to override
+# This Role is Used by in Many Playbooks, its Safe to Override
 journald_vars_to_replace:
   - { var: Storage, val: persistent }
   - { var: Compress, val: yes }
