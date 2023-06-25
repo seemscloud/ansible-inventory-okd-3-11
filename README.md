@@ -4,6 +4,8 @@
 
 ### Inventory
 
+`inventories/hosts.yaml`
+
 ```yaml
 all:
   children:
@@ -57,6 +59,25 @@ all:
               openshift_node_group_name: node-config-compute
 ```
 
+`inventories/group_vars/all.yaml`
+
+```yaml
+# Override journald variables
+# ./openshift-ansible/roles/openshift_node/defaults/main.yml
+journald_vars_to_replace:
+  - { var: Storage, val: persistent }
+  - { var: Compress, val: yes }
+  - { var: SyncIntervalSec, val: 1s }
+  - { var: RateLimitInterval, val: 1s }
+  - { var: RateLimitBurst, val: 10000 }
+  - { var: SystemMaxUse, val: 4G }
+  - { var: SystemMaxFileSize, val: 10M }
+  - { var: MaxRetentionSec, val: 1month }
+  - { var: MaxFileSec, val: 1day }
+  - { var: ForwardToSyslog, val: no }
+  - { var: ForwardToWall, val: no }
+```
+
 ### Run
 
 ```bash
@@ -72,7 +93,6 @@ ansible-playbook -i hosts.yaml \
 ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/adhoc/uninstall.yml
 ```
-
 
 ## Authentication
 
@@ -118,8 +138,3 @@ console.okd3-prod         IN    A      10.100.100.15
 17                       IN    PTR    okd3-node0.seems.local.
 18                       IN    PTR    okd3-node1.seems.local.
 ```
-
-## Docs
-
-### Default variables for node
-`./openshift-ansible/roles/openshift_node/defaults/main.yml`
