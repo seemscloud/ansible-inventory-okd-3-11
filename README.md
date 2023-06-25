@@ -73,3 +73,21 @@ EndOfMessage
 master-restart api
 master-restart controllers
 ```
+
+### Login
+
+```bash
+oc login https://console.okd3-prod.seems.local:8443 \
+  --username okdadmin \
+  --password dmlAjICyfrYXCsEH3NOoeeZMBkbo9G0JJy70z4etiO1dlCoo \
+  --insecure-skip-tls-verify=true \
+  --loglevel=10
+```
+
+### Using Kube Admin
+
+```bash
+oc --config /etc/origin/master/admin.kubeconfig get pods --all-namespaces
+
+kubectl --kubeconfig /etc/origin/master/admin.kubeconfig get pods --all-namespaces
+```
