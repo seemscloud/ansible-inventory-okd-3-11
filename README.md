@@ -1,6 +1,8 @@
 # okd-3-11-example
 
-## Inverntory 
+## Ansible
+
+### Inventory
 
 ```yaml
 all:
@@ -50,7 +52,26 @@ all:
               openshift_node_group_name: node-config-compute
 ```
 
+### Run
+
+```bash
+# Prepare
+ansible-playbook -i hosts.yaml \
+  openshift-ansible/playbooks/prerequisites.yml
+
+# Deploy
+ansible-playbook -i hosts.yaml \
+  openshift-ansible/playbooks/deploy_cluster.yml
+
+# Uninstall
+ansible-playbook -i hosts.yaml \
+  openshift-ansible/playbooks/adhoc/uninstall.yml
+```
+
+
 ## Authentication
+
+### HTpasswd
 
 ```yaml
 credentials:
@@ -79,6 +100,8 @@ apps.okd3-prod            IN    A      10.100.100.14
 
 console.okd3-prod         IN    A      10.100.100.15
 ```
+
+### Reverse
 
 ```ini
 10                       IN    PTR    okd3-master0.seems.local.
