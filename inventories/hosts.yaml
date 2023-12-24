@@ -4,12 +4,16 @@ all:
       vars:
         # Debug Ansible Run
         debug_level: 2
+        
         # Amnsible Connection
         ansible_ssh_user: root
         ansible_user: root
+        
         # Installation Type
         openshift_deployment_type: origin
         openshift_disable_check: docker_storage,memory_availability,disk_availability
+        openshift_cluster_monitoring_operator_install: false
+        
         # UI Access
         internal_console_port: 8443
         openshift_master_api_port: 8443
@@ -17,6 +21,17 @@ all:
         openshift_master_cluster_hostname: console.okd3-prod.seems.local
         openshift_master_cluster_public_hostname: console.okd3-prod.seems.local
         openshift_master_default_subdomain: apps.okd3-prod.seems.local
+
+        openshift_hosted_router_certificate:
+          certfile: /xxx.crt.pem
+          keyfile: /xxx.key.pem
+          cafile: /ca.crt.pem
+
+        openshift_master_named_certificates:
+          - certfile: /root/leaf2.crt.pem
+            keyfile: /root/leaf2.key.pem
+            cafile: /root/ca.crt.pem
+        
         # Authentication
         openshift_master_htpasswd_file: /etc/origin/master/htpasswd
         openshift_master_htpasswd_users:
