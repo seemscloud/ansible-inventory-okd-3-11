@@ -18,6 +18,17 @@ ansible-playbook -i inventories/hosts.yaml \
   openshift-ansible/playbooks/adhoc/uninstall.yml
 ```
 
+## Certificates Redeploy
+
+```bash
+redeploy-certificates.yml
+
+openshift-etcd/redeploy-ca.yml
+
+openshift-master/redeploy-certificates.yml
+openshift-master/redeploy-openshift-ca.yml
+```
+
 ## DNS (`seems.local`)
  
 ### Forward
