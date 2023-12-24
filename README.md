@@ -26,7 +26,7 @@ ansible-playbook -i inventories/hosts.yaml \
 redeploy-certificates.yml
 ```
 
-## Partial
+### Partial
 
 ```bash
 openshift-etcd/redeploy-ca.yml
@@ -34,6 +34,13 @@ openshift-etcd/redeploy-ca.yml
 openshift-master/redeploy-certificates.yml
 
 openshift-master/redeploy-openshift-ca.yml
+```
+
+### Access
+
+```bash
+openshift-master/redeploy-named-certificates.yml
+openshift-hosted/redeploy-router-certificates.yml
 ```
 
 ## DNS (`seems.local`)
