@@ -2,14 +2,14 @@ all:
   children:
     OSEv3:
       vars:
-        # Debug Ansible Run
+        # Debug Level
         debug_level: 2
         
-        # Amnsible Connection
+        # Ansible Connection
         ansible_ssh_user: root
         ansible_user: root
         
-        # Installation Type
+        # Installation
         openshift_deployment_type: origin
         openshift_disable_check: docker_storage,memory_availability,disk_availability
         openshift_cluster_monitoring_operator_install: false
@@ -22,21 +22,25 @@ all:
         openshift_master_cluster_public_hostname: console.okd3-prod.seems.local
         openshift_master_default_subdomain: apps.okd3-prod.seems.local
 
+        # Certificates
+        # openshift_redeploy_openshift_ca: true
+    
         openshift_hosted_router_certificate:
           certfile: /xxx.crt.pem
           keyfile: /xxx.key.pem
           cafile: /ca.crt.pem
 
+        openshift_named_certificates_redeploy: true
         openshift_master_named_certificates:
           - certfile: /root/leaf2.crt.pem
             keyfile: /root/leaf2.key.pem
             cafile: /root/ca.crt.pem
         
-        # Authentication
+        # Initial Authentication
         openshift_master_htpasswd_file: /etc/origin/master/htpasswd
         openshift_master_htpasswd_users:
           okdadmin: $apr1$XbI1zlV3$FuiA0g8tUfbYmZDeZpyRs/
-          # password: dmlAjICyfrYXCsEH3NOoeeZMBkbo9G0JJy70z4etiO1dlCoo
+          # okdadmin:dmlAjICyfrYXCsEH3NOoeeZMBkbo9G0JJy70z4etiO1dlCoo
         openshift_master_identity_providers:
           - challenge: 'true'
             kind: HTPasswdPasswordIdentityProvider
