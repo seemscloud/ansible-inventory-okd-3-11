@@ -20,12 +20,19 @@ ansible-playbook -i inventories/hosts.yaml \
 
 ## Certificates Redeploy
 
+### Full
+
 ```bash
 redeploy-certificates.yml
+```
 
+## Partial
+
+```bash
 openshift-etcd/redeploy-ca.yml
 
 openshift-master/redeploy-certificates.yml
+
 openshift-master/redeploy-openshift-ca.yml
 ```
 
