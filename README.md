@@ -23,24 +23,37 @@ ansible-playbook -i inventories/hosts.yaml \
 ### Full
 
 ```bash
-redeploy-certificates.yml
+ansible-playbook \
+  -i inventory/hosts.yaml \
+  openshift-ansible/playbooks/redeploy-certificates.yml
 ```
 
 ### Partial
 
 ```bash
-openshift-etcd/redeploy-ca.yml
+ansible-playbook \
+  -i inventory/hosts.yaml \
+  openshift-ansible/playbooks/openshift-etcd/redeploy-ca.yml
 
-openshift-master/redeploy-certificates.yml
+ansible-playbook \
+  -i inventory/hosts.yaml \
+  openshift-ansible/playbooks/openshift-master/redeploy-certificates.yml
 
-openshift-master/redeploy-openshift-ca.yml
+ansible-playbook \
+  -i inventory/hosts.yaml \
+  openshift-ansible/playbooks/openshift-master/redeploy-openshift-ca.yml
 ```
 
 ### Access
 
 ```bash
-openshift-master/redeploy-named-certificates.yml
-openshift-hosted/redeploy-router-certificates.yml
+ansible-playbook \
+  -i inventory/hosts.yaml \
+  openshift-ansible/playbooks/openshift-master/redeploy-named-certificates.yml
+
+ansible-playbook \
+  -i inventory/hosts.yaml \
+  openshift-ansible/playbooks/openshift-hosted/redeploy-router-certificates.yml
 ```
 
 ## DNS (`seems.local`)
