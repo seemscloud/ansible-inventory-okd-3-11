@@ -6,15 +6,15 @@
 
 ```bash
 # Prepare
-ansible-playbook -i inventories/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/prerequisites.yml
 
 # Deploy
-ansible-playbook -i inventories/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/deploy_cluster.yml
 
 # Uninstall
-ansible-playbook -i inventories/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/adhoc/uninstall.yml
 ```
 
@@ -25,43 +25,37 @@ ansible-playbook -i inventories/hosts.yaml \
 #### Full
 
 ```bash
-ansible-playbook \
-  -i inventory/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/redeploy-certificates.yml
 ```
 
 #### Partial
 
 ```bash
-ansible-playbook \
-  -i inventory/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-etcd/redeploy-ca.yml
 ```
 
 ##### In Order:
 
 ```bash
-ansible-playbook \
-  -i inventory/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-certificates.yml
 ```
 
 ```bash
 # Failed on Full
-ansible-playbook \
-  -i inventory/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-openshift-ca.yml
 ```
 
 ### Access
 
 ```bash
-ansible-playbook \
-  -i inventory/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-named-certificates.yml
 
-ansible-playbook \
-  -i inventory/hosts.yaml \
+ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-hosted/redeploy-router-certificates.yml
 ```
 
