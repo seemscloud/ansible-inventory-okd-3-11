@@ -51,10 +51,16 @@ ansible-playbook -i hosts.yaml \
 
 ### Access
 
+#### Named
+
 ```bash
 ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-named-certificates.yml
+```
 
+#### Router
+
+```bash
 ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-hosted/redeploy-router-certificates.yml
 ```
