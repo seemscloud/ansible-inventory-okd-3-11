@@ -23,7 +23,7 @@ all:
           keyfile: /root/certs/router.key.pem
           cafile: /root/certs/ca.crt.pem
 
-        openshift_named_certificates_redeploy: true
+        openshift_named_certificates_redeploy: false
         openshift_master_overwrite_named_certificates: true
         openshift_master_named_certificates:
           - certfile: /root/certs/named.crt.pem
@@ -60,3 +60,16 @@ all:
             okd3-master[0:2].seems.local: { }
             okd3-node[0:1].seems.local:
               openshift_node_group_name: node-config-compute
+          vars:
+            journald_vars_to_replace:
+              - { var: Storage, val: persistent }
+              - { var: Compress, val: yes }
+              - { var: SyncIntervalSec, val: 1s }
+              - { var: RateLimitInterval, val: 1s }
+              - { var: RateLimitBurst, val: 10000 }
+              - { var: SystemMaxUse, val: 4G }
+              - { var: SystemMaxFileSize, val: 10M }
+              - { var: MaxRetentionSec, val: 1month }
+              - { var: MaxFileSec, val: 1day }
+              - { var: ForwardToSyslog, val: no }
+              - { var: ForwardToWall, val: no }
