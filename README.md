@@ -20,7 +20,9 @@ ansible-playbook -i inventories/hosts.yaml \
 
 ## Certificates Redeploy
 
-### Full
+### Internals
+
+#### Full
 
 ```bash
 ansible-playbook \
@@ -28,7 +30,7 @@ ansible-playbook \
   openshift-ansible/playbooks/redeploy-certificates.yml
 ```
 
-### Partial
+#### Partial
 
 ```bash
 ansible-playbook \
@@ -36,11 +38,16 @@ ansible-playbook \
   openshift-ansible/playbooks/openshift-etcd/redeploy-ca.yml
 ```
 
+##### In Order:
+
 ```bash
 ansible-playbook \
   -i inventory/hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-certificates.yml
+```
 
+```bash
+# Failed on Full
 ansible-playbook \
   -i inventory/hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-openshift-ca.yml
