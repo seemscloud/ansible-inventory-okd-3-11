@@ -34,7 +34,9 @@ ansible-playbook \
 ansible-playbook \
   -i inventory/hosts.yaml \
   openshift-ansible/playbooks/openshift-etcd/redeploy-ca.yml
+```
 
+```bash
 ansible-playbook \
   -i inventory/hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-certificates.yml
