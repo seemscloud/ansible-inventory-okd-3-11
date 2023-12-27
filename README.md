@@ -44,7 +44,7 @@ ansible-playbook -i hosts.yaml \
 ```
 
 ```bash
-# Failed on Full
+# Failed on Full (rmeove router pods)
 ansible-playbook -i hosts.yaml \
   openshift-ansible/playbooks/openshift-master/redeploy-openshift-ca.yml
 ```
